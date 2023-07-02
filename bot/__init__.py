@@ -146,7 +146,7 @@ try:
     parent_id = getConfig('GDRIVE_FOLDER_ID')
     DOWNLOAD_DIR = getConfig('DOWNLOAD_DIR')
     if not DOWNLOAD_DIR.endswith("/"):
-        DOWNLOAD_DIR = DOWNLOAD_DIR + '/'
+        DOWNLOAD_DIR = f'{DOWNLOAD_DIR}/'
     DOWNLOAD_STATUS_UPDATE_INTERVAL = int(getConfig('DOWNLOAD_STATUS_UPDATE_INTERVAL'))
     OWNER_ID = int(getConfig('OWNER_ID'))
     AUTO_DELETE_MESSAGE_DURATION = int(getConfig('AUTO_DELETE_MESSAGE_DURATION'))
@@ -187,7 +187,7 @@ app = Client('Slam', api_id=int(TELEGRAM_API), api_hash=TELEGRAM_HASH, bot_token
 
 # Generate Telegraph Token
 sname = ''.join(random.SystemRandom().choices(string.ascii_letters, k=8))
-LOGGER.info("Generating TELEGRAPH_TOKEN using '" + sname + "' name")
+LOGGER.info(f"Generating TELEGRAPH_TOKEN using '{sname}' name")
 telegraph = Telegraph()
 telegraph.create_account(short_name=sname)
 telegraph_token = telegraph.get_access_token()

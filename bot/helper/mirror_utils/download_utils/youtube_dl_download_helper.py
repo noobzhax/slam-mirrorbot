@@ -19,7 +19,7 @@ class MyLogger:
         # Hack to fix changing changing extension
         match = re.search(r'.ffmpeg..Merging formats into..(.*?).$', msg)
         if match and not self.obj.is_playlist:
-            newname = match.group(1)
+            newname = match[1]
             newname = newname.split("/")
             newname = newname[-1]
             self.obj.name = newname

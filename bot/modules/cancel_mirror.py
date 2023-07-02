@@ -57,8 +57,7 @@ def cancel_all(update, context):
     count = 0
     gid = 0
     while True:
-        dl = getAllDownload()
-        if dl:
+        if dl := getAllDownload():
             if dl.gid() != gid:
                 gid = dl.gid()
                 dl.download().cancel_download()
